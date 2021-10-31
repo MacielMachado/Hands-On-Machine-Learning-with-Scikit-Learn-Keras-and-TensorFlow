@@ -1,5 +1,5 @@
 
-import pandas as pd
+from sklearn.preprocessing import OrdinalEncoder
 
 class data_cleaner_and_manipulator():
     def __init__(self):
@@ -30,3 +30,8 @@ class data_cleaner_and_manipulator():
 
     def get_columns_of_specific_dtype(self, df, dtype):
         return list(df.select_dtypes(include=[dtype]).columns)
+
+    def textEncoder(self, df):
+        ordinal_encoder = OrdinalEncoder()
+        ordinal_encoder.fit_transform(df)
+        return df
